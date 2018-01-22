@@ -1,0 +1,7 @@
+[package]
+name = "crypto"
+version = "0.1.0"
+authors = ["Doug Cichon <djcichon@gmail.com>"]
+
+[dependencies]
+clap="2.29.2"
