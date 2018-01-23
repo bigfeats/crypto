@@ -1,5 +1,6 @@
 pub mod hill;
 pub mod shift;
+pub mod utils;
 
 pub fn encrypt(requested_algorithm: &String, message: &String, key: &String) -> String {
     match requested_algorithm.as_str() {

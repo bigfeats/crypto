@@ -1,4 +1,5 @@
 use std::ops::Add; // For adding to a String
+use algorithms::utils::shift_letter;
 
 pub fn encrypt(message: &String, key: &String) -> String {
     println!("Encrypting with Shift, message: {}, key: {}", message, key);
@@ -32,16 +33,4 @@ fn shift_string(message: &String, offset: i32) -> String {
     }
 
     ciphertext
-}
-
-fn shift_letter(plain_letter: char, offset: i32) -> char {
-    let base = 'a' as u8;
-    let as_number = plain_letter as u8 - base;
-    let offset_number = as_number as i32 + offset;
-
-    // % is a remainder function, not a modulus.  They work differently for negative numbers.
-    let mod_offset = (((offset_number % 26) + 26) % 26) as u8;
-    let shifted_char = (base + mod_offset) as char;
-
-    shifted_char
 }
