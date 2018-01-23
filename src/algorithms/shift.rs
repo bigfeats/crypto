@@ -2,7 +2,7 @@ use std::ops::Add; // For adding to a String
 use algorithms::utils::shift_letter;
 
 pub fn encrypt(message: &str, key: &str) -> String {
-    println!("Encrypting with Shift, message: {}, key: {}", message, key);
+    println!("Encrypting with shift cipher, message: {}, key: {}", message, key);
 
     let key = match key.parse::<i32>() {
         Ok(k) => k,
@@ -13,7 +13,7 @@ pub fn encrypt(message: &str, key: &str) -> String {
 }
 
 pub fn decrypt(message: &str, key: &str) -> String {
-    println!("Decrypting with Shift, message: {}, key: {}", message, key);
+    println!("Decrypting with shift cipher, message: {}, key: {}", message, key);
 
     let key = match key.parse::<i32>() {
         Ok(k) => k,
