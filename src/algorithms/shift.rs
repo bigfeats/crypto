@@ -1,4 +1,3 @@
-use std::ops::Add; // For adding to a String
 use algorithms::utils;
 
 pub fn encrypt(message: &str, key: &str) -> Result<String, String> {
@@ -21,9 +20,9 @@ fn shift_string(message: &str, offset: i32) -> String {
     for letter in message.chars() {
         if letter.is_alphabetic() {
             let shifted_letter = utils::shift_letter(letter, offset);
-            ciphertext = ciphertext.add(shifted_letter.to_string().as_str());
+            ciphertext.push(shifted_letter);
         } else {
-            ciphertext = ciphertext.add(letter.to_string().as_str());
+            ciphertext.push(letter);
         }
     }
 
