@@ -12,3 +12,11 @@ pub fn shift_letter(plain_letter: char, offset: i32) -> char {
 
     shifted_char
 }
+
+pub fn parse_integer_key(key: &str) -> Result<i32, String> {
+    match key.parse::<i32>() {
+        Ok(k) => Ok(k),
+        Err(_message) => return Err(format!("Invalid key, expected integer: {}", key))
+    }
+}
+

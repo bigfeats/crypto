@@ -9,5 +9,8 @@ pub fn do_crypto(config: &config::Config) {
         result = algorithms::decrypt(&config.algorithm, &config.message, &config.key);
     }
 
-    println!("{}", result);
+    match result {
+        Ok(result_str) => println!("{}", result_str),
+        Err(error_str) => eprintln!("Encryption error: {}", error_str)
+    }
 }

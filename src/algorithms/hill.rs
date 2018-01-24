@@ -1,9 +1,9 @@
-pub fn encrypt(message: &String, key: &String) -> String {
-    println!("Encrypting with hill cipher, message: {}, key: {}", message, key);
-    String::from("hi i'm encrypted")
+#[allow(unused_variables)]
+pub fn encrypt(message: &str, key: &str) -> Result<String, String> {
+    Err("Unimplemented algorithm: hill encryption".to_string())
 }
 
-pub fn decrypt(message: &String, key: &String) -> String {
-    println!("Decrypting with hill cipher, message: {}, key: {}", message, key);
-    String::from("hi i'm decrypted")
+#[allow(unused_variables)]
+pub fn decrypt(message: &str, key: &str) -> Result<String, String> {
+    Err("Unimplemented algorithm: hill decryption".to_string())
 }
