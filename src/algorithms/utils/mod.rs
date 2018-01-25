@@ -2,15 +2,15 @@ pub mod math;
 
 use self::math::modulus;
 
-pub fn shift_letter(plain_letter: char, offset: i32) -> char {
-    let base = 'a' as u8;
-    let as_number = plain_letter as u8 - base;
-    let offset_number = as_number as i32 + offset;
+// Assumes a lower case letter, index starts at 1.
+pub fn get_letter_index(letter: char) -> u8 {
+    letter as u8 - 'a' as u8 + 1u8
+}
 
-    let mod_offset = modulus(offset_number, 26) as u8;
-    let shifted_char = (base + mod_offset) as char;
-
-    shifted_char
+// Handles modulus when index > alphabet size
+pub fn get_letter(index: i32) -> char {
+    let mod_offset = modulus(index - 1, 26) as u8;
+    ('a' as u8 + mod_offset) as char
 }
 
 pub fn parse_integer_key(key: &str) -> Result<i32, String> {

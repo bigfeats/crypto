@@ -19,7 +19,7 @@ fn shift_string(message: &str, offset: i32) -> String {
 
     for letter in message.chars() {
         if letter.is_alphabetic() {
-            let shifted_letter = utils::shift_letter(letter, offset);
+            let shifted_letter = shift_letter(letter, offset);
             ciphertext.push(shifted_letter);
         } else {
             ciphertext.push(letter);
@@ -27,6 +27,13 @@ fn shift_string(message: &str, offset: i32) -> String {
     }
 
     ciphertext
+}
+
+fn shift_letter(plain_letter: char, offset: i32) -> char {
+    let letter_index = utils::get_letter_index(plain_letter);
+    let offset_index = letter_index as i32 + offset;
+
+    utils::get_letter(offset_index)
 }
 
 #[cfg(test)]
